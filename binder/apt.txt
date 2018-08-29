@@ -8,7 +8,6 @@ python-zmq
 sudo
 libgraphicsmagick1-dev
 nodejs
-npm
 libfftw3-dev
 sox
 libsox-dev
