@@ -6,6 +6,8 @@ git clone https://github.com/torch/distro.git ~/torch --recursive
 cd ~/torch
 ./install.sh -b
 
+source ~/.bashrc
+
 # Install most things using luarocks
 luarocks install torch
 luarocks install nn
