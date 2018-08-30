@@ -42,6 +42,8 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
 
+COPY . ${HOME}
+
 RUN git clone https://github.com/torch/distro.git ~/torch --recursive
 
 WORKDIR /home/$NB_USER/torch
