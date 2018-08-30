@@ -51,7 +51,7 @@ RUN ./install.sh -b
 RUN ~/torch/install/bin/luarocks install torch && \
     ~/torch/install/bin/luarocks install nn && \
     ~/torch/install/bin/luarocks install optim && \
-    ~/torch/install/bin/luarocks install lua-cjson \
+    ~/torch/install/bin/luarocks install lua-cjson && \
     ~/torch/install/bin/luarocks install totem
 
 WORKDIR /home/$NB_USER
