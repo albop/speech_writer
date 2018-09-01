@@ -42,8 +42,6 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
 # Switch back to jovyan to avoid accidental container runs as root
 USER $NB_UID
 
-COPY . ${HOME}
-
 RUN git clone https://github.com/torch/distro.git ~/torch --recursive
 
 WORKDIR /home/$NB_USER/torch
@@ -59,3 +57,14 @@ RUN ~/torch/install/bin/luarocks install torch && \
 WORKDIR /home/$NB_USER
 
 RUN git clone https://github.com/deepmind/torch-hdf5 && cd torch-hdf5 && ~/torch/install/bin/luarocks make hdf5-0-0.rockspec
+
+# python dependencies
+RUN pip install matplotlib
+RUN pip install ipywidgets && jupyter nbextension enable --py widgetsnbextension && jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
+
+RUN git clone https://github.com/jcjohnson/torch-rnn.git
+
+COPY . ${HOME}
+
+# missing torch-rnn
